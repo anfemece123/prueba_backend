@@ -9,8 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsers = exports.createUser = void 0;
+exports.prueba = exports.getUsers = exports.createUser = void 0;
 const User_1 = require("../entities/User");
+const { generateJWT, verifyJwt } = require("../utils/jwt");
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { firstName, lastName } = req.body;
@@ -40,3 +41,18 @@ const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getUsers = getUsers;
+const prueba = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const token = yield generateJWT({ uid: "anfemece123" }, "15m");
+        console.log(token);
+        // const verify = await verifyJwt(token);
+        // console.log(verify);
+        // return res.json({ token, verify });
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            return res.status(500).json({ message: error.message });
+        }
+    }
+});
+exports.prueba = prueba;

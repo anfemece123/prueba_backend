@@ -20,6 +20,8 @@ export class Order extends BaseEntity {
   state: string;
   @Column()
   total: number;
+  @Column()
+  token: string;
   @CreateDateColumn()
   createAt: Date;
   @UpdateDateColumn()

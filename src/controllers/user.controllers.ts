@@ -34,9 +34,9 @@ export const prueba = async (req: Request, res: Response) => {
   try {
     const token = await generateJWT({ uid: "anfemece123" }, "15m");
     console.log(token);
-    const verify = await verifyJwt(token);
-    console.log(verify);
-    return res.json({ token, verify });
+    // const verify = await verifyJwt(token);
+    // console.log(verify);
+    // return res.json({ token, verify });
   } catch (error) {
     if (error instanceof Error) {
       return res.status(500).json({ message: error.message });

@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Order = void 0;
 const typeorm_1 = require("typeorm");
+const User_1 = require("./User");
+const Employee_1 = require("./Employee");
 let Order = class Order extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -30,6 +32,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Order.prototype, "total", void 0);
 __decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Order.prototype, "token", void 0);
+__decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
 ], Order.prototype, "createAt", void 0);
@@ -37,6 +43,14 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], Order.prototype, "updateAd", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => User_1.User, (user) => user.orders),
+    __metadata("design:type", User_1.User)
+], Order.prototype, "users", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => Employee_1.Employee, (employee) => employee.orders),
+    __metadata("design:type", Employee_1.Employee)
+], Order.prototype, "employees", void 0);
 Order = __decorate([
     (0, typeorm_1.Entity)("orders")
 ], Order);
