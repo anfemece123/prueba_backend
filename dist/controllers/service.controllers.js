@@ -11,8 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllService = void 0;
 const Service_1 = require("../entities/Service");
-// import {services} from '../../seeds'
-const Test = require("../../seeds");
 const getAllService = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allService = yield Service_1.Service.find();
     if (!allService.length) {
@@ -71,8 +69,6 @@ const getAllService = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 },
             ])
                 .execute();
-            // await Service.bulkCreate(Test);
-            //   console.log(allServiceFromDb);
             return res.status(200).send(allServiceFromDb);
         }
         catch (error) {
@@ -80,14 +76,6 @@ const getAllService = (req, res) => __awaiter(void 0, void 0, void 0, function* 
                 return res.status(500).json({ message: error.message });
             }
         }
-        // try {
-        //   const allProducts = await Service.find();
-        //   res.status(200).send(allProducts);
-        // } catch (error) {
-        //   if (error instanceof Error) {
-        //     return res.status(500).json({ message: error.message });
-        //   }
-        // }
     }
     else {
         try {

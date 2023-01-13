@@ -17,8 +17,6 @@ export class Order extends BaseEntity {
   @Column()
   service: string;
   @Column()
-  state: string;
-  @Column()
   total: number;
   @Column()
   token: string;

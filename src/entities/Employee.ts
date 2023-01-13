@@ -19,9 +19,7 @@ export class Employee extends BaseEntity {
   @Column()
   lastName: string;
   @Column()
-  phone: string;
-  @Column()
-  email: number;
+  email: string;
   @Column()
   address: string;
   @Column({
